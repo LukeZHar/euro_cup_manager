@@ -32,7 +32,8 @@ def save_matches(file_path, matches):
         with open(file_path, 'w') as file:
             json.dump(matches, file, indent=4)
         print(f"Matches saved to {file_path}")
-    except FileNotFoundError:
-        print(f"File not found: {file_path}")
+    except PermissionError:
+        print(f"Permission denied to write")
     except Exception as e:
         print(f"An unexpected error occurred: {e}")
+
